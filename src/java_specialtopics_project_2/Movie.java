@@ -17,6 +17,9 @@ public class Movie {
     private String name;
     private float rating;
     
+    
+    
+    
     String getYear(){
         return year;
     }

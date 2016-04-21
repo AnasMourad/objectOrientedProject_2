@@ -11,9 +11,9 @@ public class Request {
     private Date requestDate;
     private Date responseDate;
     private enum type{TYPE1, TYPE2};
-    String customerId, movieId;
-    status requestStatus;
-    type requestType;
+    private String customerId, movieId;
+    private status requestStatus;
+    private type requestType;
    
     public void Request(status requestStatus, type requestType, Date requestDate, Date responseDate, String customerId, String movieId){
         this.requestDate= requestDate;

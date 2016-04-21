@@ -16,6 +16,16 @@ public class Customer {
     private String phone;
     private String password;
     private String name;
+
+    public Customer(String email, String address, String phone, String password, String name) {
+        this.email = email;
+        this.address = address;
+        this.phone = phone;
+        this.password = password;
+        this.name = name;
+    }
+    
+    
     
     /*GETTERS*/
     String getEmail(){
