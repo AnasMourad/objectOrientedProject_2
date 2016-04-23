@@ -22,7 +22,6 @@ public class Review {
     }
     
     
-    
     /*GETTERS AND SETTERS*/
     public String getReviewId() {
         return reviewId;

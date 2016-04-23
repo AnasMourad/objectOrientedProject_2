@@ -15,21 +15,31 @@ public class Rental {
     
     private String DVDserialNumber;
     private String reviewId;
-    
+    private String rentalId;
     private Date rentDate;
     private Date returnDate;
-    
-    private enum Status {RETURNED, NOTRETURNED};
-    
-    private Status status;
 
-    public Rental(String DVDserialNumber, String reviewId, Date rentDate, Date returnDate, Status status) {
+    public Rental(String rentalId, String DVDserialNumber, String reviewId, Date rentDate, Date returnDate, RentalStatus status) {
+        
+        this.rentalId = rentalId;
         this.DVDserialNumber = DVDserialNumber;
         this.reviewId = reviewId;
         this.rentDate = rentDate;
         this.returnDate = returnDate;
         this.status = status;
     }
+    
+    public String getRentalId() {
+        return rentalId;
+    }
+
+    public void setRentalId(String rentalId) {
+        this.rentalId = rentalId;
+    }
+    
+    
+    private RentalStatus status;
+    
     
     
     public String getDVDserialNumber() {
@@ -64,11 +74,11 @@ public class Rental {
         this.returnDate = returnDate;
     }
 
-    public Status getStatus() {
+    public RentalStatus getStatus() {
         return status;
     }
 
-    public void setStatus(Status status) {
+    public void setStatus(RentalStatus status) {
         this.status = status;
     }
     

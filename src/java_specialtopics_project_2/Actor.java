@@ -11,13 +11,24 @@ package java_specialtopics_project_2;
  */
 public class Actor {
     private String name;
-    private enum Gender {MALE, FEMALE};
+    private String id;
+    
     private Gender gender;
     
-    Actor(String name, Gender gender){
+    Actor(String id, String name){
         this.name = name;
-        this.gender = gender;
+        this.id = id;
+        
     }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+    
     /*GETTERS*/
     String getName(){
         return name;

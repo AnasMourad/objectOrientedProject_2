@@ -11,11 +11,35 @@ package java_specialtopics_project_2;
  */
 public class Movie {
     
+    private String id;
     private String year;
-    private enum genre {GENRE1, GENRE2, GENRE3};
-    genre movieGenre;
+    Genre movieGenre;
     private String name;
     private float rating;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public Genre getMovieGenre() {
+        return movieGenre;
+    }
+
+    public void setMovieGenre(Genre movieGenre) {
+        this.movieGenre = movieGenre;
+    }
+
+    public Movie(String id, String year, Genre movieGenre, String name, float rating) {
+        this.id = id;
+        this.year = year;
+        this.movieGenre = movieGenre;
+        this.name = name;
+        this.rating = rating;
+    }
     
     
     
@@ -23,7 +47,7 @@ public class Movie {
     String getYear(){
         return year;
     }
-    genre getGenre(){
+    Genre getGenre(){
         return movieGenre;
     }
     float getRating(){
@@ -37,7 +61,7 @@ public class Movie {
     void setYear(String year){
         this.year = year;
     }
-    void setGenre(genre movieGenre){
+    void setGenre(Genre movieGenre){
         this.movieGenre = movieGenre;
     }
     void setName(String name){

@@ -10,10 +10,14 @@ package java_specialtopics_project_2;
  * @author Ana-1
  */
 public class Keyword {
-    String name;
-    String id;
     
-    
+    private String name;
+    private String id;
+
+    public Keyword(String id, String name) {
+        this.name = name;
+        this.id = id;
+    }
     
     /*GETTERS AND SETTERS*/
     public String getName() {
