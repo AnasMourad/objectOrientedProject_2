@@ -13,10 +13,10 @@ public class Movie {
     
     private String id;
     private String year;
-    Genre movieGenre;
+    private Genre movieGenre;
     private String name;
     private float rating;
-
+    
     public String getId() {
         return id;
     }
@@ -33,7 +33,10 @@ public class Movie {
         this.movieGenre = movieGenre;
     }
 
+    
+    
     public Movie(String id, String year, Genre movieGenre, String name, float rating) {
+        
         this.id = id;
         this.year = year;
         this.movieGenre = movieGenre;

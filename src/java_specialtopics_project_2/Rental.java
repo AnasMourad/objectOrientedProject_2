@@ -18,7 +18,35 @@ public class Rental {
     private String rentalId;
     private Date rentDate;
     private Date returnDate;
+    private int rating;
+    private String rentalReview;
 
+    
+    
+    public boolean hasRentalRating(){
+        if(!rentalReview.equals("")){
+            return true;
+        }
+        return  false;
+    }
+    
+    public int getRating() {
+        return rating;
+    }
+
+    public void setRating(int rating) {
+        this.rating = rating;
+    }
+
+    public String getRentalReview() {
+        return rentalReview;
+    }
+
+    public void setRentalReview(String RentalReview) {
+        this.rentalReview = RentalReview;
+    }
+
+    
     public Rental(String rentalId, String DVDserialNumber, String reviewId, Date rentDate, Date returnDate, RentalStatus status) {
         
         this.rentalId = rentalId;
@@ -82,7 +110,5 @@ public class Rental {
         this.status = status;
     }
     
-    
-            
     
 }

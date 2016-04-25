@@ -16,6 +16,7 @@ public class Controller {
     Map<String, MovieKeyword> movieKeywords;
     Map<String, Rental> rentals;
     Map<String, Request>requests;
+    Map<String, DVD> dvds;
     
     OperationStatus addActor(String id, String name,Gender gender ){
         
@@ -93,10 +94,16 @@ public class Controller {
         return operationStatus.OPERATION_FAILED;
     }
     
-    //add review fix
     
     
-    //add dvd fix
-    
+    OperationStatus addDvd(String movieId, String serialNumber){
+        if(!dvds.containsKey(serialNumber)){
+            
+            Movie movie = movies.get(movieId);
+            DVD dvd = new DVD(movie, serialNumber);
+            dvds.put(serialNumber, dvd);
+        }
+        return operationStatus.OPERATION_FAILED;
+    }
     
 }

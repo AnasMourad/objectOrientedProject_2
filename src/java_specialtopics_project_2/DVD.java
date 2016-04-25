@@ -4,9 +4,21 @@ public class DVD {
     
     private String serialNumber;
     private boolean isLost;
-     
-    DVD(String serialNumber){
+    private Movie movie;
+
+    public Movie getMovie() {
+        return movie;
+    }
+
+    public void setMovie(Movie movie) {
+        this.movie = movie;
+    }
+    
+    
+    
+    DVD(Movie movie, String serialNumber){
         
+        this.movie = movie;
         this.isLost=false;
         this.serialNumber = serialNumber;
      
@@ -20,8 +32,8 @@ public class DVD {
         this.isLost = isLost;
     }
     /*GETTERS*/
-    
-   String getSerialNumber(){
+   
+    String getSerialNumber(){
        return serialNumber;
    }
    boolean getIsLost(){
