@@ -11,6 +11,7 @@ package java_specialtopics_project_2;
  */
 public class Movie {
     
+    
     private String id;
     private String year;
     private Genre movieGenre;
@@ -69,6 +70,13 @@ public class Movie {
     }
     void setName(String name){
         this.name = name;
+    }
+    
+    public boolean containsName(String name ){
+        if(this.name.contains(name)){
+            return true;
+        }
+        return false;
     }
     
 }

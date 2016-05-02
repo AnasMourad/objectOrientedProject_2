@@ -5,6 +5,7 @@
  */
 package java_specialtopics_project_2;
 
+import java.util.Calendar;
 import java.util.Date;
 
 /**
@@ -16,8 +17,10 @@ public class Rental {
     private String DVDserialNumber;
     private String reviewId;
     private String rentalId;
-    private Date rentDate;
-    private Date returnDate;
+    private Calendar rentDate;
+    private Calendar returnDate;
+    private Calendar expectedReturnDate;
+    
     private int rating;
     private String rentalReview;
 
@@ -46,8 +49,16 @@ public class Rental {
         this.rentalReview = RentalReview;
     }
 
+    public Calendar getExpectedReturnDate() {
+        return expectedReturnDate;
+    }
+
+    public void setExpectedReturnDate(Calendar expectedReturnDate) {
+        this.expectedReturnDate = expectedReturnDate;
+    }
+
     
-    public Rental(String rentalId, String DVDserialNumber, String reviewId, Date rentDate, Date returnDate, RentalStatus status) {
+    public Rental(String rentalId, String DVDserialNumber, String reviewId, Calendar rentDate, Calendar returnDate, RentalStatus status) {
         
         this.rentalId = rentalId;
         this.DVDserialNumber = DVDserialNumber;
@@ -86,19 +97,19 @@ public class Rental {
         this.reviewId = reviewId;
     }
 
-    public Date getRentDate() {
+    public Calendar getRentDate() {
         return rentDate;
     }
 
-    public void setRentDate(Date rentDate) {
+    public void setRentDate(Calendar rentDate) {
         this.rentDate = rentDate;
     }
 
-    public Date getReturnDate() {
+    public Calendar getReturnDate() {
         return returnDate;
     }
 
-    public void setReturnDate(Date returnDate) {
+    public void setReturnDate(Calendar returnDate) {
         this.returnDate = returnDate;
     }
 
