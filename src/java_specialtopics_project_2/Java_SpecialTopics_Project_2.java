@@ -24,6 +24,10 @@ public class Java_SpecialTopics_Project_2 {
         // TODO code application logic here
         
         Controller c = new Controller();
+        /**ACTORS**/
+        c.addActor("ben_actor_id", "Ben aff", Gender.MALE);
+        c.addActor("scar_actor_id", "scar", Gender.FEMALE);
+        c.addActor("Yuri_boyka_id", "Yuri boyka", Gender.MALE);
         
         /***MOVIES LIBRARY***/
         c.addMovie("PinkPanther_id", "2000", Genre.GENRE1, "Pink Panther", (float) 7.6);
@@ -31,6 +35,7 @@ public class Java_SpecialTopics_Project_2 {
         c.addDvd("PinkPanther_id", "dvd_serial_for_pinkPanther_2");
         c.addDvd("PinkPanther_id", "dvd_serial_for_pinkPanther_3");
         c.addDvd("PinkPanther_id", "dvd_serial_for_pinkPanther_4");
+        c.bindActorToMovie("PinkPanther_id", "ben_actor_id");
         
         //c.linkKeywordToMovie("PinkPanther_id", "fun");
         //c.linkKeywordToMovie("PinkPanther_id", "childish");
@@ -44,6 +49,7 @@ public class Java_SpecialTopics_Project_2 {
         
         
         c.addMovie("Ninja_id", "2006", Genre.GENRE2, "Ninja assassin", (float) 9.6);
+        c.bindActorToMovie("Ninja_id", "Yuri_boyka_id");
         c.addDvd("Ninja_id", "dvd_serial_for_ninja_1");
         c.addDvd("Ninja_id", "dvd_serial_for_ninja_2");
         c.addDvd("Ninja_id", "dvd_serial_for_ninja_3");
@@ -81,6 +87,7 @@ public class Java_SpecialTopics_Project_2 {
         DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
    
         c.searchByKeyWord("action");
+        c.searchByActor("be");
         c.searchByRating((float)7.6);
         
         Calendar returnDate = Calendar.getInstance();

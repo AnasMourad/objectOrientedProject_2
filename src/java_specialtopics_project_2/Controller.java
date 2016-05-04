@@ -23,12 +23,16 @@ public class Controller {
     HashMap<String, Keyword> keywords=new HashMap<>();
     HashMap<String, Movie> movies = new HashMap<>();
     //bug: no duplicates
+    
     HashMap<String, LinkedList<Keyword>> movieKeywords = new HashMap<>();
+    HashMap<String, LinkedList<Actor>> movieActors = new HashMap<>();
+    
     HashMap<String, Rental> rentals= new HashMap<>();
     HashMap<String, Request>requests = new HashMap<>();
     HashMap<String, DVD> dvds=  new HashMap<>();
-    LinkedList<Keyword> keywordsForMovie = new LinkedList<>();
     
+    LinkedList<Keyword> keywordsForMovie = new LinkedList<>();
+    LinkedList<Actor> actorsForMovie = new LinkedList<>();
     
     /*TESTING THINGS*/
     HashMap<String, LinkedList<Keyword>> getMovieKeyWords(){
@@ -99,6 +103,28 @@ public class Controller {
         return operationStatus.OPERATION_SUCCESS;
     
     }
+    
+    
+    OperationStatus bindActorToMovie(String movieId, String actorId){
+        
+        LinkedList<Actor> list;
+        if(movieActors.get(movieId)==null){
+            
+            list = new LinkedList<>();
+        }else{
+            
+            list = movieActors.get(movieId);
+        }
+        Actor actor = actors.get(actorId);
+        list.add(actor);
+        MovieKeyword movieKeyWord = new MovieKeyword(movieId, actorId);
+        movieActors.put(movieId, list);
+        
+        
+        return operationStatus.OPERATION_SUCCESS;
+    }
+    
+    
     DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
     
     OperationStatus addRental(String rentalId, String DVDserialNumber, String reviewId, Calendar returnDate, RentalStatus status){
@@ -260,6 +286,36 @@ public class Controller {
         
     }
     
+    public void searchByActor(String actorName){
+        
+        
+        Iterator it = dvds.entrySet().iterator();
+        System.out.println("Searching for movie with actor name: \""+ actorName+"\" in the shelves..");
+        while (it.hasNext()) {
+        
+            Map.Entry pair = (Map.Entry)it.next();
+            
+            DVD dvd = (DVD) pair.getValue();
+            System.err.println("movie name "+dvd.getMovie().getName());
+            LinkedList<Actor> localActors = new LinkedList<>();
+            localActors = movieActors.get(dvd.getMovie().getId());
+            
+            
+                    
+            for (Iterator<Actor> itt = localActors.iterator(); itt.hasNext();) {
+                Actor key = itt.next();
+                
+                if(key.getName().toLowerCase().contains(actorName.toLowerCase())){
+      
+                    System.out.println("We found a movie matching the keyword: \""+actorName+"\" you want -- "+dvd.getMovie().getName());
+                }
+            }
+            
+            
+        }
+        
+    } 
+    
     public void searchByRating(float rating){
         
         
@@ -320,7 +376,6 @@ public class Controller {
         rental.setReturnDate(returnDate);
         System.out.println("returnn date"+dateFormat.format(returnDate.getTime()));
         System.out.println("Your Total is:" + (2.0+rental.computeFine())+" you have "+rental.computeFine()+" Fine" );
-        
         return operationStatus.OPERATION_FAILED;
     
     }
