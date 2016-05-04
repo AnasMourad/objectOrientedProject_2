@@ -268,19 +268,21 @@ public class Controller {
             DVD dvd = (DVD) pair.getValue();
             System.err.println("movie name "+dvd.getMovie().getName());
             LinkedList<Keyword> localKeywords = new LinkedList<>();
-            localKeywords = movieKeywords.get(dvd.getMovie().getId());
             
-            
-                    
-            for (Iterator<Keyword> itt = localKeywords.iterator(); itt.hasNext();) {
-                Keyword key = itt.next();
-                
-                if(key.getName().contains(keyword)){
-      
-                    System.out.println("We found a movie matching the keyword: \""+keyword+"\" you want -- "+dvd.getMovie().getName());
+            if(movieKeywords.get(dvd.getMovie().getId())!=null){
+                localKeywords = movieKeywords.get(dvd.getMovie().getId());
+
+
+
+                for (Iterator<Keyword> itt = localKeywords.iterator(); itt.hasNext();) {
+                    Keyword key = itt.next();
+
+                    if(key.getName().contains(keyword)){
+
+                        System.out.println("We found a movie matching the keyword: \""+keyword+"\" you want -- "+dvd.getMovie().getName());
+                    }
                 }
             }
-            
             
         }
         
@@ -298,20 +300,22 @@ public class Controller {
             DVD dvd = (DVD) pair.getValue();
             System.err.println("movie name "+dvd.getMovie().getName());
             LinkedList<Actor> localActors = new LinkedList<>();
-            localActors = movieActors.get(dvd.getMovie().getId());
             
-            
-                    
-            for (Iterator<Actor> itt = localActors.iterator(); itt.hasNext();) {
-                Actor key = itt.next();
-                
-                if(key.getName().toLowerCase().contains(actorName.toLowerCase())){
-      
-                    System.out.println("We found a movie matching the keyword: \""+actorName+"\" you want -- "+dvd.getMovie().getName());
+            if(movieActors.get(dvd.getMovie().getId()) != null){
+                localActors = movieActors.get(dvd.getMovie().getId());
+
+
+
+                for (Iterator<Actor> itt = localActors.iterator(); itt.hasNext();) {
+                    Actor key = itt.next();
+
+                    if(key.getName().toLowerCase().contains(actorName.toLowerCase())){
+
+                        System.out.println("We found a movie matching the keyword: \""+actorName+"\" you want -- "+dvd.getMovie().getName());
+                    }
                 }
+
             }
-            
-            
         }
         
     } 
