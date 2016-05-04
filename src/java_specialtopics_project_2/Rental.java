@@ -125,9 +125,13 @@ public class Rental {
         System.out.println("Return Date: " + returnDate.getTime());
         Date returnDay = returnDate.getTime();
         Date rentDay = rentDate.getTime();
-        
-        return (float)((((returnDay.getTime()-rentDay.getTime())/ 1000 / 60 / 60 / 24 )-7) * 0.10);
-        
+        //no fine
+        //Bug fixed: returning negative value of money
+        if((returnDay.getTime()-rentDay.getTime())<=7){
+            return  2.0f;
+        }else{
+            return (float)((((returnDay.getTime()-rentDay.getTime())/ 1000 / 60 / 60 / 24 )-7) * 0.10);
+        }
 
     }
     
