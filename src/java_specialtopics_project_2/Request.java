@@ -1,5 +1,6 @@
 package java_specialtopics_project_2;
 
+import java.util.Calendar;
 import java.util.Date;
 
 /**
@@ -8,19 +9,21 @@ import java.util.Date;
  */
 public class Request {
     
-    private Date requestDate;
-    private Date responseDate;
+    private Calendar requestDate;
+    private Calendar responseDate;
     private String requestId;
     private String customerId, movieId;
     private RequestStatus requestStatus;
     private RequestType requestType;
    
-     Request(String requestId, RequestStatus requestStatus, RequestType requestType, Date requestDate, Date responseDate, String customerId, String movieId){
+     Request(String requestId, RequestType requestType, Calendar requestDate, String customerId, String movieId){
+        
+        this.requestStatus= RequestStatus.INITIATED;
         this.requestId = requestId;
         this.requestDate= requestDate;
         this.requestStatus = requestStatus;
         this.requestType = requestType;
-        this.responseDate = responseDate;
+        
         this.customerId = customerId;
         this.movieId = movieId;
     }
@@ -61,10 +64,10 @@ public class Request {
     RequestStatus getStatus(){
         return requestStatus;
     }
-    Date getRequestDate(){
+    Calendar getRequestDate(){
         return requestDate;
     }
-    Date getResponseDate(){
+    Calendar getResponseDate(){
         return responseDate;
     }
     RequestType getRequestType(){
@@ -75,10 +78,10 @@ public class Request {
     void setStatus(RequestStatus requestStatus){
         this.requestStatus = requestStatus;
     }
-    void setRequestDate(Date requestDate){
+    void setRequestDate(Calendar requestDate){
         this.requestDate = requestDate;
     }
-    void setResponseDate(Date responseDate){
+    void setResponseDate(Calendar responseDate){
         this.responseDate = responseDate;
      }
     void setRequestType(RequestType requestType){

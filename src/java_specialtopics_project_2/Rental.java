@@ -23,8 +23,6 @@ public class Rental {
     
     private int rating;
     private String rentalReview;
-
-    
     
     public boolean hasRentalRating(){
         if(!rentalReview.equals("")){
@@ -119,6 +117,18 @@ public class Rental {
 
     public void setStatus(RentalStatus status) {
         this.status = status;
+    }
+    
+    public float computeFine(){
+        
+        System.out.println("Rental Date: " + rentDate.getTime());
+        System.out.println("Return Date: " + returnDate.getTime());
+        Date returnDay = returnDate.getTime();
+        Date rentDay = rentDate.getTime();
+        
+        return (float)((((returnDay.getTime()-rentDay.getTime())/ 1000 / 60 / 60 / 24 )-7) * 0.10);
+        
+
     }
     
     
